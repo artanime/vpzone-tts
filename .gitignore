@@ -7,10 +7,10 @@ __pycache__/
 .venv/
 venv/
 
-# Datos generados en tiempo de ejecución
-logs/
-temp/
-audio/
+# Datos generados en tiempo de ejecución (solo en la raíz; NO toca tts/audio/)
+/logs/
+/temp/
+/audio/
 *.log
 
 # Configuración local (NO se debe subir)
