@@ -1,0 +1,30 @@
+# Dependencias de VPZone TTS
+# Instalar con:  .venv\Scripts\python -m pip install -r requirements.txt
+#
+# Versiones fijadas a las probadas (Python 3.14 / Windows).
+# Si usas otra versión de Python y alguna no tiene rueda, puedes relajar
+# el pin (por ejemplo, `==` por `>=`).
+
+# Interfaz gráfica
+customtkinter==6.0.0
+
+# Imágenes (logo de la cabecera y icono de la ventana)
+Pillow==12.3.0
+
+# Proveedor TTS online (voz de Microsoft, alta calidad)
+edge-tts==7.2.8
+
+# Proveedor TTS offline (SAPI5 de Windows)
+pyttsx3==2.99
+
+# Proveedor TTS neuronal local/offline (Piper, ONNX)
+piper-tts==1.8.0
+onnxruntime==1.31.0
+
+# Reproducción de audio (MP3/WAV)
+# En Python 3.13+ usar pygame-ce (trae ruedas cp313/cp314).
+pygame-ce==2.5.8
+
+# Cliente HTTP/WebSocket de VPZone y Woupi
+requests==2.34.2
+websocket-client==1.9.2

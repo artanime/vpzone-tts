@@ -1,0 +1,13 @@
+{
+    "id": "debug",
+    "name": "Debug Plugin",
+    "version": "1.0.0",
+    "author": "VPZone",
+    "description": "Plugin de prueba",
+    "entry": "plugin.py",
+    "class": "DebugPlugin",
+    "dependencies": [],
+    "capabilities": [
+        "provider"
+    ]
+}

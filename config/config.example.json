@@ -1,0 +1,37 @@
+{
+    "version": "1.0.0",
+    "language": "es",
+    "platform": "vpzone",
+    "channel": "tu_canal",
+    "api_base_url": "https://vpzone.tv/api/v1",
+    "websocket_url": "wss://chat.vpzone.tv/ws",
+    "woupi": {
+        "_comment": "Aqui solo van los datos NO secretos. El client_id es publico (flow de codigo de dispositivo). Los tokens (access_token, refresh_token) y la api_key se definen en .env o los genera el boton 'Cuenta Woupi'.",
+        "client_id": "",
+        "scopes": "chat:read",
+        "broadcaster_id": "",
+        "user_id": "",
+        "ignore_own_messages": false,
+        "api_base_url": "https://api.woupi.buzz",
+        "eventsub_url": "wss://api.woupi.buzz/eventsub"
+    },
+    "tts": {
+        "provider": "piper",
+        "voice": "default",
+        "volume": 100,
+        "speed": 1.0,
+        "max_queue": 100,
+        "read_username": true,
+        "skip_history": true,
+        "auto_clean_temp": true,
+        "temp_clean_interval": 120,
+        "filters": {
+            "length": true,
+            "url": true,
+            "emoji": true,
+            "duplicate": true,
+            "spam": true,
+            "replace": false
+        }
+    }
+}
