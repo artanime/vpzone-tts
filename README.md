@@ -70,6 +70,32 @@ En la interfaz:
 6. Si eliges **Woupi** como plataforma, pulsa **Cuenta Woupi** la primera vez
    para autorizar tu cuenta con un código (ver más abajo).
 
+## Voces de Piper (offline)
+
+El proveedor **Piper** (el de por defecto) usa modelos neuronales locales. Las
+voces **no** vienen con el repositorio: se descargan aparte con el script
+incluido, que no necesita Python ni la app instalada.
+
+```powershell
+# Ver el catálogo completo (voces, tamaños y licencias)
+powershell -ExecutionPolicy Bypass -File .\voices\instalar_voces.ps1 -Listar
+
+# Instalar todas las voces de licencia libre (recomendado)
+powershell -ExecutionPolicy Bypass -File .\voices\instalar_voces.ps1 -Publicas
+
+# Instalar voces concretas
+powershell -ExecutionPolicy Bypass -File .\voices\instalar_voces.ps1 -Voz en_US-amy-medium, fr_FR-siwis-medium
+```
+
+Los modelos se guardan en `voices/piper/` y **aparecen automáticamente** en el
+desplegable de voces: no hay que tocar `config/config.json`.
+
+Hay voces en **inglés (US y GB)** y **francés**, además de las de español que
+ya trae la instalación. Cada modelo hereda la licencia de su dataset (CC0,
+dominio público, CC BY, CC BY-SA, Apache-2.0, AGPL-3.0…), y algunas son de uso
+restringido o no comercial. **Consulta la tabla de licencias antes de
+redistribuirlas**: → [`voices/README.md`](voices/README.md).
+
 ## Configuración (`config/config.json`)
 
 El archivo real es **local** (ignorado por git). Se crea a partir de
@@ -202,7 +228,8 @@ plugins/               Plugins de usuario (ejemplo: debug)
 gui/                   Interfaz CustomTkinter
 tests/                 Scripts de prueba
 logs/ temp/ audio/     Datos generados en tiempo de ejecución
-voices/piper/          Modelos de voz de Piper (.onnx + .onnx.json)
+voices/                README.md e instalador de voces
+voices/piper/          Modelos de voz de Piper (.onnx + .onnx.json, descargados)
 ```
 
 ### Añadir un proveedor TTS
@@ -276,9 +303,10 @@ Distribuido bajo la licencia **MIT**. Consulta el archivo [`LICENSE`](LICENSE).
 ## Notas
 
 - **Piper** (por defecto): funciona sin internet. Las voces se guardan en
-  `voices/piper/` como `<nombre>.onnx` + `<nombre>.onnx.json`. Para añadir otra
-  voz, descarga los dos ficheros desde
-  <https://huggingface.co/rhasspy/piper-voices> y cópialos ahí; aparecerá sola
+  `voices/piper/` como `<nombre>.onnx` + `<nombre>.onnx.json` y se instalan con
+  `.\voices\instalar_voces.ps1` (ver [Voces de Piper](#voces-de-piper-offline)).
+  También puedes descargarlas a mano desde
+  <https://huggingface.co/rhasspy/piper-voices> y copiarlas ahí; aparecerán sola
   en el desplegable de voces.
 - **edge-tts**: Microsoft puede rechazar temporalmente el endpoint gratuito
   (error 403) según la red/IP. Si ocurre, usa **Piper** o **pyttsx3**.
