@@ -23,7 +23,7 @@ pyttsx3==2.99
 
 # Proveedor TTS neuronal local/offline (Piper, ONNX)
 piper-tts==1.8.0
-onnxruntime==1.31.0
+onnxruntime==1.31.1
 
 # Reproducción de audio (MP3/WAV)
 # En Python 3.13+ usar pygame-ce (trae ruedas cp313/cp314).
