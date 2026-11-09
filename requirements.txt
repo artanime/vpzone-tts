@@ -4,12 +4,16 @@
 # Versiones fijadas a las probadas (Python 3.14 / Windows).
 # Si usas otra versión de Python y alguna no tiene rueda, puedes relajar
 # el pin (por ejemplo, `==` por `>=`).
+#
+# Ultima auditoria de seguridad: 2026-11-09 (OSV / PyPI advisories) - 0 avisos.
 
 # Interfaz gráfica
 customtkinter==6.0.0
 
 # Imágenes (logo de la cabecera y icono de la ventana)
-Pillow==12.3.0
+# >=13.0.0 corrige 59 avisos de Pillow 12.x (desbordamientos de heap, RCE via
+# Ghostscript, DoS y fugas de memoria en decodificadores de imagen).
+Pillow==13.0.0
 
 # Proveedor TTS online (voz de Microsoft, alta calidad)
 edge-tts==7.2.8
@@ -26,5 +30,9 @@ onnxruntime==1.31.0
 pygame-ce==2.5.8
 
 # Cliente HTTP/WebSocket de VPZone y Woupi
+# certifi va fijado explicitamente (es dependencia transitiva de requests) para
+# garantizar el almacen de CAs parcheado: <2026.10.18 incluye CAs emSign con
+# claves de intermediario comprometidas.
 requests==2.34.2
+certifi==2026.10.23
 websocket-client==1.9.2
