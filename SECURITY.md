@@ -55,6 +55,10 @@ Quedan **fuera** del alcance:
   los modelos descargados (`voices/**/*.onnx*`) están en `.gitignore`.
 - Las voces que se redistribuyen en el release tienen licencia compatible; las
   de uso restringido o no comercial no se publican.
+- Las voces de Piper se descargan por HTTPS solo desde hosts de HuggingFace y se
+  verifican con **SHA-256** (modelo y `.onnx.json`) y tamaño exacto antes de
+  instalarse; `voices/instalar_voces.ps1 -Verificar` audita las ya instaladas y
+  el script repara las que se hayan alterado.
 
 ## Buenas prácticas para quien use el proyecto
 
