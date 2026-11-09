@@ -1,0 +1,34 @@
+version: 2
+
+updates:
+  # Dependencias de Python: abre PR automaticos cuando hay versiones nuevas
+  # o avisos de seguridad en requirements.txt.
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "America/Santiago"
+    open-pull-requests-limit: 10
+    labels:
+      - "dependencias"
+      - "seguridad"
+    commit-message:
+      prefix: "deps"
+      include: "scope"
+
+  # Acciones de GitHub usadas en los workflows (.github/workflows).
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "America/Santiago"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencias"
+      - "seguridad"
+    commit-message:
+      prefix: "ci"
