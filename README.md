@@ -85,16 +85,24 @@ powershell -ExecutionPolicy Bypass -File .\voices\instalar_voces.ps1 -Publicas
 
 # Instalar voces concretas
 powershell -ExecutionPolicy Bypass -File .\voices\instalar_voces.ps1 -Voz en_US-amy-medium, fr_FR-siwis-medium
+
+# Comprobar la integridad de las voces instaladas (SHA-256)
+powershell -ExecutionPolicy Bypass -File .\voices\instalar_voces.ps1 -Verificar
 ```
 
 Los modelos se guardan en `voices/piper/` y **aparecen automáticamente** en el
 desplegable de voces: no hay que tocar `config/config.json`.
 
-Hay voces en **inglés (US y GB)** y **francés**, además de las de español que
-ya trae la instalación. Cada modelo hereda la licencia de su dataset (CC0,
-dominio público, CC BY, CC BY-SA, Apache-2.0, AGPL-3.0…), y algunas son de uso
-restringido o no comercial. **Consulta la tabla de licencias antes de
-redistribuirlas**: → [`voices/README.md`](voices/README.md).
+Hay voces en **español, inglés (US y GB)** y **francés**. Cada modelo hereda la
+licencia de su dataset (CC0, dominio público, CC BY, CC BY-SA, Apache-2.0,
+AGPL-3.0…), y algunas son de uso restringido o no comercial. **Consulta la
+tabla de licencias antes de redistribuirlas**:
+→ [`voices/README.md`](voices/README.md).
+
+Cada descarga se verifica con **SHA-256** (modelo y `.onnx.json`) y con el
+tamaño exacto, además de aceptar solo HTTPS desde hosts de HuggingFace. Si un
+fichero no coincide, se descarta y no se instala; `-Verificar` revisa los ya
+instalados y el script repara los que se hayan alterado.
 
 ## Configuración (`config/config.json`)
 
